@@ -1,16 +1,21 @@
-import { createEpicMiddleware } from 'redux-observable';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import HttpHandler from './utils/HttpHandler';
+import news from './reducer';
 
-import epic from './rootEpic';
-import reducer from './rootReducer';
+const reducer = combineReducers({
+  news
+});
 
+// Note: passing middleware as the last argument requires redux@>=3.1.0
 // eslint-disable-next-line no-underscore-dangle
-const devTools = process.env.REACT_APP_ENV === 'local' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-const composeEnhancers = devTools || compose;
-const epicMiddleware = createEpicMiddleware();
+const composeEnhancers = compose;
+
 const store = createStore(
   reducer,
-  composeEnhancers(applyMiddleware(epicMiddleware)),
+  composeEnhancers(applyMiddleware(thunk)),
 );
-epicMiddleware.run(epic);
+
+HttpHandler.setStore(store);
+
 export default store;

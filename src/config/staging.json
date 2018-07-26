@@ -1,6 +1,3 @@
 {
-  "env": "staging",
-  "identityClientUrl": "http://stg-identity-client.staging.cluster.qover.io",
-  "identityUrl": "http://stg-identity.staging.cluster.qover.io",
-  "partnersUrl": "http://stg-partners.staging.cluster.qover.io"
+  "env": "staging"
 }

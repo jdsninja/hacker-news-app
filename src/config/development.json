@@ -1,6 +1,4 @@
 {
   "env": "development",
-  "identityClientUrl": "http://dev-identity-client.staging.cluster.qover.io",
-  "identityUrl": "http://dev-identity.staging.cluster.qover.io",
-  "partnersUrl": "http://dev-partners.staging.cluster.qover.io"
+  "hackerNewsUrl": "https://hacker-news.firebaseio.com/v0"
 }
