@@ -1,0 +1,6 @@
+{
+  "env": "local",
+  "identityClientUrl": "http://localhost:3000",
+  "identityUrl": "http://localhost:8081",
+  "partnersUrl": "http://localhost:8082"
+}

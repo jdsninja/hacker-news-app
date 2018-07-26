@@ -1,0 +1,5 @@
+{
+  "env": "production",
+  "identityUrl": "http://prod-identity.production.cluster.qover.io",
+  "partnersUrl": "http://prod-partners.production.cluster.qover.io"
+}

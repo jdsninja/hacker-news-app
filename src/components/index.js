@@ -1,0 +1,1 @@
+export { HotSwappingIntlProvider } from './hotSwappingIntlProvider';
