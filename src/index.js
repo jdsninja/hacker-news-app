@@ -1,31 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { addLocaleData } from 'react-intl';
-import { Provider } from 'react-redux';
-
 import en from 'react-intl/locale-data/en';
-
-//import 'semantic-ui-css/semantic.min.css';
-//import './index.css';
-
-import { HotSwappingIntlProvider } from './components';
-import App from './App';
+import { Provider } from 'react-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import ConnectedThemeProvider from './utils/ConnectedThemeProvider';
 import store from './store';
-import Config from './utils/config';
+import App from './App';
 
+injectTapEventPlugin();
 addLocaleData([...en]);
 
-Config.getConfig()
-  .then(() => {
-    ReactDOM.render(
-      <Provider store={store}>
-        <HotSwappingIntlProvider>
-          <App />
-        </HotSwappingIntlProvider>
-      </Provider>,
-      document.getElementById('root'),
-    );
-  })
-  .catch((err) => {
-    console.error('Error when loading config:', err);
-  });
+const root = document.getElementById('root');
+
+ReactDOM.render(
+  <Provider store={store}>
+    <ConnectedThemeProvider>
+      <App />
+    </ConnectedThemeProvider>
+  </Provider>, root);
